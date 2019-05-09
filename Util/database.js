@@ -6,7 +6,7 @@ var connection = new sequelize('learning','root','SANKAR.21', {
   host: 'localhost',
   port: 3306,
   dialect: 'mysql',
-  //operatorsAliases: Op, // use Sequelize.Op.
+
   logging: false,
   pool: {
     max: 30,

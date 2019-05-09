@@ -1,13 +1,14 @@
 const Sequelize=require('sequelize');
+
 const sequelize=require('../util/database');
 const Employee = sequelize.define('Employees', {
-Employee_id: {
+Employee_Id: {
 type:Sequelize.INTEGER,
 autoIncrement:true,
 allowNull:false,
 primaryKey:true
 },
-Employee_name:Sequelize.STRING,
+Employee_Name:Sequelize.STRING,
 email: {
     type:Sequelize.STRING,
     allowNull:false
@@ -27,6 +28,12 @@ Designation: {
 state: {
     type:Sequelize.STRING,
     allowNull:false
+},
+CreatedOn:{
+    type: new Date()
+},
+ModifiedOn:{
+    type: new Date()
 },
 IsDeleted:0
 },
