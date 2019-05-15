@@ -35,6 +35,14 @@ CreatedOn:{
 ModifiedOn:{
     type: new Date()
 },
+CreatedBy:{
+    type:Sequelize.STRING,
+    allowNull:false
+},
+ModifiedBy:{
+    type:Sequelize.STRING,
+    allowNull:false
+},
 IsDeleted:0
 },
 {

@@ -6,7 +6,7 @@ let alignColorsAndTime=winston.format.combine(
 
 winston.format.colorize(),
 winston.format.label({
-    label:'[LOG]'
+    label:'[errorLog]'
 }),
 winston.format.timestamp({
     format:"YYYY-MM-DD HH:mm:ss"

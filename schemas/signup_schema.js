@@ -7,6 +7,8 @@ var signupSchema = {
       phoneNumber: Joi.string().required(),
         Designation: Joi.string().required(),
         state: Joi.string().required(),
+         CreatedBy: Joi.string().required(),
+         ModifiedBy: Joi.string().required(),
     }
 };
 module.exports = {
