@@ -7,8 +7,8 @@ const expressJoi = require('express-joi-validator');
 const login = require('../schemas/login_schema');
 const verifyToken = require('../middleware/jwtTokenVerify');
 const signup=require('../schemas/signup_schema')
-
-
+const userService=require('../service/user_service');
+router.get('/users',userService.users);
 router.post('/signup',expressJoi(signup.signupSchema),signupServices.signup); //Registration page 
 router.post('/login', expressJoi(login.loginSchema) ,loginServices.login); //login page
 router.get('/search/:email', verifyToken.checkToken ,employeeServices.search);    //search single user
