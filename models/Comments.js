@@ -1,7 +1,9 @@
-const Sequelize = require("sequelize");
+// const Sequelize = require("sequelize");
 
-const sequelize = require("../util/database");
-module.exports = (sequelize,Sequelize) => {
+// const sequelize = require("../util/database");
+
+module.exports = (sequelize,DataTypes) => {
+
   const Comments = sequelize.define('comments', {
     id: {
       type: DataTypes.UUID,
@@ -9,7 +11,7 @@ module.exports = (sequelize,Sequelize) => {
       defaultValue: DataTypes.UUIDV4,
       allowNull: false
     },
-    p_id: {
+    postPId: {
       type: DataTypes.UUID,
       allowNull: false
     },
@@ -30,12 +32,19 @@ module.exports = (sequelize,Sequelize) => {
       values: ['approved', 'rejected', 'in review']
 
     },
-    created_at: {
-      type: DataTypes.DATE,
-      allowNull: false
+    createdAt: {
+      field: "created_at",
+      type: DataTypes.DATE
     },
-    updated_at:  DataTypes.DATE,
-    deleted_at: DataTypes.DATE
-  });}
+    updatedAt: {
+      field: "updated_at",
+      type: DataTypes.DATE
+    },
+    deletedAt: {
+      field: "deleted_at",
+      type: DataTypes.DATE
+    }
+  });
 
-module.exports=Comments;
+  return Comments;
+};

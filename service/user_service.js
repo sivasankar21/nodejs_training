@@ -3,6 +3,7 @@ const posts = require("../models/Posts");
 const comments = require("../models/Comments");
 const express = require("express");
 const router = express.Router();
+const db=require('../Util/database');
 exports.users=async(req, res) => {
     const result= await db.users.findAll({
         include:[
@@ -21,7 +22,7 @@ include:[
             return Object.assign({},
                 
                 {
-                    user_id:user.u_id,
+                    u_id:user.u_id,
                     username:user.username,
                     role:user.role,
                     posts: user.posts.map(post => {
@@ -29,14 +30,14 @@ include:[
 
                         },
                         {
-                            p_id:post.id,
-                            u_id:post.u_id,
+                            p_id:post.p_id,
+                            UserUId:post.UserUId,
                             content:post.content,
                             comments: post.comments.map(comment => {
                                 return Object.assign({},{
 
                                     id:comment.id,
-                                    post_id: comment.p_id,
+                                    postPId: comment.postPId,
                                     content:comment.content,
                                     commenter:comment.commenter_username,
                                     commenter_email: comment.commenter_email

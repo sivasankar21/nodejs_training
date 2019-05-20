@@ -1,7 +1,8 @@
-const Sequelize=require('sequelize');
+//const Sequelize=require('sequelize');
 
-const sequelize=require('../util/database');
-module.exports = (sequelize,Sequelize) => { 
+//const sequelize=require('../util/database');
+
+module.exports = (sequelize,DataTypes) => { 
 const Posts = sequelize.define('posts', {
 p_id: {
       type: DataTypes.UUID,
@@ -9,7 +10,7 @@ p_id: {
       defaultValue: DataTypes.UUIDV4,
       allowNull: false
     },
-    u_id: {
+    UserUId: {
       type: DataTypes.UUID,
       allowNull: false
     },
@@ -17,12 +18,19 @@ p_id: {
       type: DataTypes.TEXT,
       required: true
     },
-    created_at: {
-      type: DataTypes.DATE,
-      allowNull: false
+    createdAt: {
+      field: "created_at",
+      type: DataTypes.DATE
     },
-    updated_at:  DataTypes.DATE,
-    deleted_at: DataTypes.DATE
+    updatedAt: {
+      field: "updated_at",
+      type: DataTypes.DATE
+    },
+    deletedAt: {
+      field: "deleted_at",
+      type: DataTypes.DATE
+    }
   });
-}
-  module.exports=Posts;
+  return Posts;
+};
+  //module.exports=Posts;

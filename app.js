@@ -9,7 +9,7 @@ var authRouter = require('./routes/Employee_routes');
 // view engine setup
 //const userService=require('../service/user_service');
 
-var userService=require('../service/user_service');
+//var userService=require('./service/user_service');
 app.set('views', 'views');
 app.set('view engine', 'ejs');
 
