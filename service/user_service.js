@@ -3,7 +3,7 @@ const posts = require("../models/Posts");
 const comments = require("../models/Comments");
 const express = require("express");
 const router = express.Router();
-const db=require('../Util/database');
+const db=require('../Util/db');
 exports.users=async(req, res) => {
     const result= await db.users.findAll({
         include:[

@@ -15,7 +15,7 @@ exports.signup = async (req, res, next) => {
         const Salt = await bcrypt.genSalt(10);
         console.log(Salt);
         const hashedPassword = await bcrypt.hash(req.body.password, Salt);
-        const result = await employee.create({
+        const result = await employee.Employee.create({
             Employee_Name:req.body.Employee_Name,
             email:req.body.email,
             password:hashedPassword,
@@ -50,4 +50,5 @@ exports.signup = async (req, res, next) => {
     }
   }
     
+  
   

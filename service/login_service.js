@@ -9,9 +9,12 @@ const jwt = require('jsonwebtoken');
 //const saltRounds=100;
 const bcrypt=require('bcrypt');
 exports.login = async (req, res, next) => {
-    try {
+    try { 
+        //console.log(req.body.email);
         // Checking user email is in DB or not
-        const result = await employee.findOne({ where: { email: req.body.email, isDeleted: 0 } })
+        const result = await employee.Employee.findOne({ where: { email: req.body.email, isDeleted: 0 } })
+        console.log(req.body.email);
+        // Checking user email is in 
         if (result) {
             const hashedPassword = bcrypt.compare(result.password, req.body.password)
             // Checking user is authenticated or not
